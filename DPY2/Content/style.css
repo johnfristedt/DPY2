@@ -1,9 +1,9 @@
-﻿@keyframes expand {
+﻿@keyframes explode {
     0% {
-        width: 5vw;
-        height: 5vw;
-        top: calc(50vh - 2.5vw);
-        left: calc(50vw - 2.5vw);
+        width: 5vh;
+        height: 5vh;
+        top: calc(50vh - 2.5vh);
+        left: calc(50vw - 2.5vh);
         background-color: black;
     }
     100% {
@@ -14,25 +14,83 @@
         background-color: white;
     }
 }
-
-.explode, .implode {
-    animation: expand 1s ease;
+@keyframes implode {
+    0% {
+        width: 90vh;
+        height: 90vh;
+        top: calc(50vh - 45vh);
+        left: calc(50vw - 45vh);
+        background-color: white;
+    }
+    100% {
+        width: 5vh;
+        height: 5vh;
+        top: calc(50vh - 2.5vh);
+        left: calc(50vw - 2.5vh);
+        background-color: black;
+    }
 }
+@keyframes rotate1 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+@keyframes rotate2 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(300deg); }
+}
+@keyframes rotate3 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(240deg); }
+}
+@keyframes rotate4 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(180deg); }
+}
+@keyframes rotate5 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(120deg); }
+}
+@keyframes rotate6 {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(60deg); }
+}
+
 .explode {
+    animation: explode 0.5s ease-in;
     animation-fill-mode: forwards;
 }
 .implode {
-    animation-fill-mode: backwards;
-    animation-direction: reverse;
+    animation: implode 0.5s ease-in;
+    animation-fill-mode: forwards;
+}
+
+html, body { margin: 0; padding: 0; }
+
+#radial {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
 }
 
 .circle {
+    
+}
+
+.circle::after {
+    content: "";
     position: absolute;
-    top: calc(50vh - 2.5vw);
-    left: calc(50vw - 2.5vw);
-    width: 5vw;
-    height: 5vw;
+    top: 100px;
+    left: 0;
+    width: 5vh;
+    height: 5vh;
     background-color: black;
     border: 1vw solid black;
     border-radius: 50%;
 }
+
+#circle1 { animation: rotate1 4s ease; animation-fill-mode: forwards; }
+#circle2 { animation: rotate2 4s ease; }
+#circle3 { animation: rotate3 4s ease; }
+#circle4 { animation: rotate4 4s ease; }
+#circle5 { animation: rotate5 4s ease; }
+#circle6 { animation: rotate6 4s ease; }
